@@ -1,8 +1,45 @@
+# gs-ur-js
+
+This repository contains the Flutter SDK for interacting with Goldshell's GSWallet. GSWallet is a hardware wallet that securely transmits information via QR codes.  This SDK allows developers to integrate GSWallet functionality into their applications.
+GsWallet Official Website: [wallet.goldshell.com](wallet.goldshell.com) 
+
+## Features
+
+* **Secure QR Code Communication:** Enables secure communication with GSWallet using QR codes.
+* **Multi-Currency Support:**  Supports various cryptocurrencies (currently under development, examples below show BTC and ETH).
+* **Transaction Signing:**  Allows parsing signature of transactions from the GSWallet device.
+
+## Getting Started
+
+These instructions will guide you through setting up and using the `gs-ur-dart` SDK.
+
+
+### Prerequisites
+
+* Flutter SDK and Dart installed.
+
+
+### Installation
+
+Choose your preferred package manager:
+
+```bash
+// pubspec.yaml
+dependencies:
+  gs_ur_dart: ^1.0.0
+
+// bash
+flutter pub get
+
+// In your Dart file, import library
+import 'package:gs_ur_dart/gs_ur_dart.dart';
+```
+
 ## QRcode Example
 
-### 生成UR二维码
+### Generating UR QR Codes
 
-```js
+```dart
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
@@ -123,9 +160,9 @@ class _AnimatedQRCodeState extends State<_AnimatedQRCode> {
 ```
 
 
-### 扫描二维码 解析UR结果
+### Scanning QR Codes and Parsing UR Results
 
-```js
+```dart
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
