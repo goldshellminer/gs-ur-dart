@@ -1,0 +1,24 @@
+name: gs_ur_dart
+description: Dart port of https://github.com/ngraveio/bc-ur
+version: 1.0.0
+homepage:
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  bs58check: ^1.0.2
+  cbor: 6.3.3
+  crypto: ^3.0.5
+  flutter:
+    sdk: flutter
+  flutter_bitcoin: ^1.0.1
+  hex: ^0.2.0
+  rational: ^2.2.3
+  uuid: ^4.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
