@@ -7,7 +7,6 @@ import 'package:gs_ur_dart/src/registry/data_item.dart';
 import 'package:gs_ur_dart/src/registry/registry_item.dart';
 import 'package:gs_ur_dart/src/registry/registry_type.dart';
 import 'package:gs_ur_dart/src/utils/format.dart';
-import 'package:gs_ur_dart/src/utils/uuid.dart';
 
 
 enum BtcSignatureKeys {

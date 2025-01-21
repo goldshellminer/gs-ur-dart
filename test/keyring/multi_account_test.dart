@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gs_ur_dart/gs_ur_dart.dart';
 import 'package:gs_ur_dart/src/utils/format.dart';

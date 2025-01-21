@@ -49,7 +49,7 @@ class GsWalletPsbtSDK{
     final sig = BtcInscribeSignature.fromCBOR(ur.cbor);
     final uuid = sig.getRequestId();
     return {
-      'uuid': uuid == null ? null : uuidStringify(uuid),
+      'uuid': uuidStringify(uuid),
       'commitSignature': toHex(sig.getCommitSignature()),
       'revealSignature': toHex(sig.getRevealSignature()),
       'origin': sig.getOrigin(),

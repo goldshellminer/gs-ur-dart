@@ -1,15 +1,16 @@
 name: gs_ur_dart
-description: Dart port of https://github.com/ngraveio/bc-ur
+description: The UR protocol of GSWallet. Consisting of dart port of https://github.com/ngraveio/bc-ur.
 version: 1.0.0
-homepage:
-
+homepage: https://wallet.goldshell.com
+repository: https://github.com/goldshellminer/gs-ur-dart.git/
+license: MIT
 environment:
   sdk: '>=3.4.3 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
   bs58check: ^1.0.2
-  cbor: 6.3.3
+  cbor: ^6.3.3
   crypto: ^3.0.5
   flutter:
     sdk: flutter
