@@ -57,11 +57,11 @@ class BtcInscribeRequest extends RegistryItem {
     }
     final commitData = map[BtcInscribeRequestKeys.commitData.index.toString()];
     final revealData = map[BtcInscribeRequestKeys.revealData.index.toString()];
-    final uuid = map[BtcInscribeRequestKeys.uuid.index.toString()]?.bytes;
+    final uuid = map[BtcInscribeRequestKeys.uuid.index.toString()];
     final origin = map[BtcInscribeRequestKeys.origin.index.toString()];
 
     return BtcInscribeRequest(
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       commitData: fromHex(commitData),
       revealData: fromHex(revealData),
       origin: origin,

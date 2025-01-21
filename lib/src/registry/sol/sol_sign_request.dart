@@ -102,7 +102,7 @@ class SolSignRequest extends RegistryItem {
     final fee = map[SolSignRequestKeys.fee.index.toString()];
 
     return SolSignRequest(
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       signData: fromHex(signData),
       signType: signType,
       derivationPath: derivationPath,

@@ -76,13 +76,13 @@ class AlphSignRequest extends RegistryItem {
       throw "Param for fromDataItem is neither String nor Map, please check it!";
     }
     final data = map[AlphSignRequestKeys.data.index.toString()];
-    final uuid = map[AlphSignRequestKeys.uuid.index.toString()]?.bytes;
+    final uuid = map[AlphSignRequestKeys.uuid.index.toString()];
     final derivationPath = map[AlphSignRequestKeys.derivationPath.index.toString()] != null ? CryptoKeypath.fromDataItem(map[AlphSignRequestKeys.derivationPath.index.toString()]) : null;
     final outputs = map[AlphSignRequestKeys.outputs.index.toString()]?.map((e)=>CryptoTxEntity.fromDataItem(e)).toList();
     final origin = map[AlphSignRequestKeys.origin.index.toString()];
 
     return AlphSignRequest(
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       data: fromHex(data),
       derivationPath: derivationPath,
       outputs: outputs,

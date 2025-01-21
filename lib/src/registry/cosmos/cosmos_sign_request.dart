@@ -73,14 +73,14 @@ class CosmosSignRequest extends RegistryItem {
       throw "Param for fromDataItem is neither String nor Map, please check it!";
     }
     final signData = map[CosmosSignRequestKeys.signData.index.toString()];
-    final uuid = map[CosmosSignRequestKeys.uuid.index.toString()]?.bytes;
+    final uuid = map[CosmosSignRequestKeys.uuid.index.toString()];
     final chain = map[CosmosSignRequestKeys.chain.index.toString()];
     final origin = map[CosmosSignRequestKeys.origin.index.toString()];
     final derivationPath = CryptoKeypath.fromDataItem(map[CosmosSignRequestKeys.derivationPath.index.toString()]);
     final fee = map[CosmosSignRequestKeys.fee.index.toString()];
 
     return CosmosSignRequest(
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       signData: fromHex(signData),
       derivationPath: derivationPath,
       chain: chain,

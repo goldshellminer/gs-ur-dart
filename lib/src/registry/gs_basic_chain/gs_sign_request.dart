@@ -66,13 +66,13 @@ class GsSignRequest extends RegistryItem {
       throw "Param for fromDataItem is neither String nor Map, please check it!";
     }
     final signData = map[GsSignRequestKeys.signData.index.toString()];
-    final uuid = map[GsSignRequestKeys.uuid.index.toString()]?.bytes;
+    final uuid = map[GsSignRequestKeys.uuid.index.toString()];
     final chain = map[GsSignRequestKeys.chain.index.toString()];
     final origin = map[GsSignRequestKeys.origin.index.toString()];
     final derivationPath = CryptoKeypath.fromDataItem(map[GsSignRequestKeys.derivationPath.index.toString()]);
 
     return GsSignRequest(
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       signData: fromHex(signData),
       derivationPath: derivationPath,
       chain: chain,

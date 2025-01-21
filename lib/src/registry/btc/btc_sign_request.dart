@@ -63,12 +63,12 @@ class BtcSignRequest extends RegistryItem {
       throw "Param for fromDataItem is neither String nor Map, please check it!";
     }
     final gspl = map[BtcSignRequestKeys.gspl.index.toString()] != null ? CryptoGspl.fromDataItem(map[BtcSignRequestKeys.gspl.index.toString()]) : CryptoGspl(data: Uint8List(0), dataType: GsplDataType.message);
-    final uuid = map[BtcSignRequestKeys.uuid.index.toString()]?.bytes;
+    final uuid = map[BtcSignRequestKeys.uuid.index.toString()];
     final derivationPath = map[BtcSignRequestKeys.derivationPath.index.toString()] != null ? CryptoKeypath.fromDataItem(map[BtcSignRequestKeys.derivationPath.index.toString()]) : null;
     final origin = map[BtcSignRequestKeys.origin.index.toString()];
 
     return BtcSignRequest(
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       gspl: gspl,
       derivationPath: derivationPath,
       origin: origin,

@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:cbor/cbor.dart';
 import 'package:gs_ur_dart/src/registry/registry_item.dart';
 import 'package:gs_ur_dart/src/registry/registry_type.dart';
+import 'package:gs_ur_dart/src/utils/format.dart';
 
 
 enum BtcInscribeSignatureKeys {
@@ -56,13 +57,13 @@ class BtcInscribeSignature extends RegistryItem {
     }
     final commitSignature = map[BtcInscribeSignatureKeys.commitSignature.index.toString()];
     final revealSignature = map[BtcInscribeSignatureKeys.revealSignature.index.toString()];
-    final uuid = map[BtcInscribeSignatureKeys.uuid.index.toString()]?.bytes;
+    final uuid = map[BtcInscribeSignatureKeys.uuid.index.toString()];
     final origin = map[BtcInscribeSignatureKeys.origin.index.toString()];
 
     return BtcInscribeSignature(
       commitSignature: commitSignature,
       revealSignature: revealSignature,
-      uuid: uuid,
+      uuid: fromHex(uuid),
       origin: origin,
     );
   }

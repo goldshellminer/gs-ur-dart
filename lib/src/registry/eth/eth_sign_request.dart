@@ -92,11 +92,11 @@ class EthSignRequest extends RegistryItem {
     final derivationPath = CryptoKeypath.fromDataItem(map[EthSignRequestKeys.derivationPath.index.toString()]);
     final chainId = map[EthSignRequestKeys.chainId.index.toString()];
     final address = map[EthSignRequestKeys.address.index.toString()];
-    final uuid = map[EthSignRequestKeys.uuid.index.toString()]?.bytes;
+    final uuid = map[EthSignRequestKeys.uuid.index.toString()];
     final origin = map[EthSignRequestKeys.origin.index.toString()];
 
     return EthSignRequest(
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       signData: fromHex(signData),
       dataType: dataType,
       chainId: chainId,

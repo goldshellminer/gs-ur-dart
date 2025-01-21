@@ -66,13 +66,13 @@ class TronSignRequest extends RegistryItem {
       throw "Param for fromDataItem is neither String nor Map, please check it!";
     }
     final signData = map[TronSignRequestKeys.signData.index.toString()];
-    final uuid = map[TronSignRequestKeys.uuid.index.toString()]?.bytes;
+    final uuid = map[TronSignRequestKeys.uuid.index.toString()];
     final fee = map[TronSignRequestKeys.fee.index.toString()];
     final origin = map[TronSignRequestKeys.origin.index.toString()];
     final derivationPath = CryptoKeypath.fromDataItem(map[TronSignRequestKeys.derivationPath.index.toString()]);
 
     return TronSignRequest(
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       signData: fromHex(signData),
       derivationPath: derivationPath,
       fee: fee,

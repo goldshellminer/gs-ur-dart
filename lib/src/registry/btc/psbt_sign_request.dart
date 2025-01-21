@@ -68,7 +68,7 @@ class PsbtSignRequest extends RegistryItem {
     final origin = map[PsbtSignRequestKeys.origin.index.toString()];
 
     return PsbtSignRequest(
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       psbt: fromHex(psbt),
       derivationPath: derivationPath,
       origin: origin,
