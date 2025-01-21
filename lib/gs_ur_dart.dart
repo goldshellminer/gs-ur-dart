@@ -1,3 +1,5 @@
+// This project is licensed under the MIT License - see the LICENSE file for details
+
 library gs_ur_dart;
 
 export 'package:gs_ur_dart/src/bc_ur/ur_encoder.dart';
