@@ -7,6 +7,13 @@ export 'package:gs_ur_dart/src/bc_ur/ur.dart';
 export 'package:gs_ur_dart/src/registry/crypto_gspl.dart';
 export 'package:gs_ur_dart/src/registry/eth/eth_sign_request.dart';
 export 'package:gs_ur_dart/src/registry/sol/sol_sign_request.dart';
+export 'package:gs_ur_dart/src/registry/sol/sol_signature.dart';
+export 'package:gs_ur_dart/src/registry/cosmos/cosmos_sign_request.dart';
+export 'package:gs_ur_dart/src/registry/cosmos/cosmos_signature.dart';
+export 'package:gs_ur_dart/src/registry/tron/tron_sign_request.dart';
+export 'package:gs_ur_dart/src/registry/tron/tron_signature.dart';
+export 'package:gs_ur_dart/src/registry/alph/alph_sign_request.dart';
+export 'package:gs_ur_dart/src/registry/alph/alph_signature.dart';
 export 'package:gs_ur_dart/src/registry/registry_item.dart';
 export 'package:gs_ur_dart/src/registry/registry_type.dart';
 

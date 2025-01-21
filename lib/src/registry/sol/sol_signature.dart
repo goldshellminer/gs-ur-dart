@@ -10,7 +10,7 @@ class SolSignature extends GsSignature {
 
   SolSignature({
     required super.signature,
-    super.uuid,
+    required super.uuid,
     super.origin,
   });
 
@@ -30,7 +30,7 @@ class SolSignature extends GsSignature {
 
     return GsSignature(
       signature: fromHex(signature),
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       origin: origin,
     );
   }

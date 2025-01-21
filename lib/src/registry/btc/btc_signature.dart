@@ -18,13 +18,13 @@ enum BtcSignatureKeys {
 }
 
 class BtcSignature extends RegistryItem {
-  final Uint8List? uuid;
+  final Uint8List uuid;
   final String? origin;
   final CryptoGspl gspl;
 
   BtcSignature({
     required this.gspl,
-    this.uuid,
+    required this.uuid,
     this.origin,
   });
 
@@ -33,16 +33,14 @@ class BtcSignature extends RegistryItem {
     return ExtendedRegistryType.BTC_SIGNATURE;
   }
 
-  Uint8List? getRequestId() => uuid;
+  Uint8List getRequestId() => uuid;
   CryptoGspl getGspl() => gspl;
   String? getOrigin() => origin;
 
   @override
   CborValue toCborValue() {
     final Map map = {};
-    if (uuid != null) {
-      map[BtcSignatureKeys.uuid.index] = CborBytes(uuid!, tags: [RegistryType.UUID.tag]);
-    }
+    map[BtcSignatureKeys.uuid.index] = CborBytes(uuid, tags: [RegistryType.UUID.tag]);
     if (origin != null) {
       map[BtcSignatureKeys.origin.index] = origin;
     }
@@ -61,7 +59,7 @@ class BtcSignature extends RegistryItem {
     final origin = map[BtcSignatureKeys.origin.index.toString()];
     return BtcSignature(
       gspl: gspl,
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       origin: origin,
     );
   }

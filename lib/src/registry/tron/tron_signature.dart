@@ -15,13 +15,13 @@ enum TronSignatureKeys {
 }
 
 class TronSignature extends RegistryItem {
-  Uint8List? uuid;
+  Uint8List uuid;
   final String? origin;
   final Uint8List signature;
 
   TronSignature({
     required this.signature,
-     this.uuid,
+    required this.uuid,
     this.origin,
   });
 
@@ -30,16 +30,14 @@ class TronSignature extends RegistryItem {
     return ExtendedRegistryType.TRON_SIGNATURE;
   }
 
-  Uint8List getRequestId() => uuid ??= generateUuid();
+  Uint8List getRequestId() => uuid;
   Uint8List getSignature() => signature;
   String? getOrigin() => origin;
 
   @override
   CborValue toCborValue() {
     final Map map = {};
-    if(uuid != null) {
-      map[TronSignatureKeys.uuid.index] = CborBytes(uuid!, tags: [RegistryType.UUID.tag]);
-    }
+    map[TronSignatureKeys.uuid.index] = CborBytes(uuid, tags: [RegistryType.UUID.tag]);
     if (origin != null) {
       map[TronSignatureKeys.origin.index] = origin;
     }
@@ -57,7 +55,7 @@ class TronSignature extends RegistryItem {
     final origin = map[TronSignatureKeys.origin.index.toString()];
     return TronSignature(
       signature: fromHex(signature),
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       origin: origin,
     );
   }

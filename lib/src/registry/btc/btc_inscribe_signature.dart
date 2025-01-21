@@ -16,7 +16,7 @@ enum BtcInscribeSignatureKeys {
 }
 
 class BtcInscribeSignature extends RegistryItem {
-  final Uint8List? uuid;
+  final Uint8List uuid;
   final String? origin;
   final Uint8List commitSignature;
   final Uint8List revealSignature;
@@ -24,7 +24,7 @@ class BtcInscribeSignature extends RegistryItem {
   BtcInscribeSignature({
     required this.commitSignature,
     required this.revealSignature,
-    this.uuid,
+    required this.uuid,
     this.origin,
   });
 
@@ -33,7 +33,7 @@ class BtcInscribeSignature extends RegistryItem {
     return ExtendedRegistryType.BTC_INSCRIBE_SIGNATURE;
   }
 
-  Uint8List? getRequestId() => uuid;
+  Uint8List getRequestId() => uuid;
   Uint8List getCommitSignature() => commitSignature;
   Uint8List getRevealSignature() => revealSignature;
   String? getOrigin() => origin;
@@ -41,9 +41,7 @@ class BtcInscribeSignature extends RegistryItem {
   @override
   CborValue toCborValue() {
     final Map map = {};
-    if (uuid != null) {
-      map[BtcInscribeSignatureKeys.uuid.index] = CborBytes(uuid!, tags: [RegistryType.UUID.tag]);
-    }
+    map[BtcInscribeSignatureKeys.uuid.index] = CborBytes(uuid, tags: [RegistryType.UUID.tag]);
     if (origin != null) {
       map[BtcInscribeSignatureKeys.origin.index] = origin;
     }

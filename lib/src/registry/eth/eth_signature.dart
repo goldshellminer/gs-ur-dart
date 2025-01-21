@@ -14,13 +14,13 @@ enum EthSignatureKeys {
 }
 
 class EthSignature extends RegistryItem {
-  final Uint8List? uuid;
+  final Uint8List uuid;
   final String? origin;
   final Uint8List signature;
 
   EthSignature({
     required this.signature,
-    this.uuid,
+    required this.uuid,
     this.origin,
   });
 
@@ -29,16 +29,14 @@ class EthSignature extends RegistryItem {
     return ExtendedRegistryType.ETH_SIGNATURE;
   }
 
-  Uint8List? getRequestId() => uuid;
+  Uint8List getRequestId() => uuid;
   Uint8List getSignature() => signature;
   String? getOrigin() => origin;
 
   @override
   CborValue toCborValue() {
     final map = {};
-    if (uuid != null) {
-      map[EthSignatureKeys.uuid.index] = CborBytes(uuid!, tags: [RegistryType.UUID.tag]);
-    }
+    map[EthSignatureKeys.uuid.index] = CborBytes(uuid, tags: [RegistryType.UUID.tag]);
     if (origin != null) {
       map[EthSignatureKeys.origin.index] = origin;
     }
@@ -57,7 +55,7 @@ class EthSignature extends RegistryItem {
 
     return EthSignature(
       signature: fromHex(signature),
-      uuid: uuid != null ? fromHex(uuid) : null ,  // Uint8List.fromList(uuidParse(uuid)),
+      uuid: fromHex(uuid),  // Uint8List.fromList(uuidParse(uuid)),
       origin: origin,
     );
   }

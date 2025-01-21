@@ -1,11 +1,9 @@
 import 'dart:convert';
 import 'dart:typed_data';
-
 import 'package:cbor/cbor.dart';
 import 'package:gs_ur_dart/src/registry/registry_item.dart';
 import 'package:gs_ur_dart/src/registry/registry_type.dart';
 import 'package:gs_ur_dart/src/utils/format.dart';
-import 'package:gs_ur_dart/src/utils/uuid.dart';
 
 
 enum PsbtSignatureKeys {
@@ -16,13 +14,13 @@ enum PsbtSignatureKeys {
 }
 
 class PsbtSignature extends RegistryItem {
-  final Uint8List? uuid;
+  final Uint8List uuid;
   final String? origin;
   final Uint8List signature;
 
   PsbtSignature({
     required this.signature,
-    this.uuid,
+    required this.uuid,
     this.origin,
   });
 
@@ -31,16 +29,14 @@ class PsbtSignature extends RegistryItem {
     return ExtendedRegistryType.PSBT_SIGNATURE;
   }
 
-  Uint8List? getRequestId() => uuid;
+  Uint8List getRequestId() => uuid;
   Uint8List getSignature() => signature;
   String? getOrigin() => origin;
 
   @override
   CborValue toCborValue() {
     final Map map = {};
-    if (uuid != null) {
-      map[PsbtSignatureKeys.uuid.index] = CborBytes(uuid!, tags: [RegistryType.UUID.tag]);
-    }
+    map[PsbtSignatureKeys.uuid.index] = CborBytes(uuid, tags: [RegistryType.UUID.tag]);
     if (origin != null) {
       map[PsbtSignatureKeys.origin.index] = origin;
     }
@@ -59,7 +55,7 @@ class PsbtSignature extends RegistryItem {
 
     return PsbtSignature(
       signature: fromHex(signature),
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       origin: origin,
     );
   }

@@ -14,13 +14,13 @@ enum CosmosSignatureKeys {
 }
 
 class CosmosSignature extends RegistryItem {
-  final Uint8List? uuid;
+  final Uint8List uuid;
   final String? origin;
   final Uint8List signature;
 
   CosmosSignature({
     required this.signature,
-     this.uuid,
+    required this.uuid,
     this.origin,
   });
 
@@ -29,16 +29,14 @@ class CosmosSignature extends RegistryItem {
     return ExtendedRegistryType.COSMOS_SIGNATURE;
   }
 
-  Uint8List? getRequestId() => uuid;
+  Uint8List getRequestId() => uuid;
   Uint8List getSignature() => signature;
   String? getOrigin() => origin;
 
   @override
   CborValue toCborValue() {
     final Map map = {};
-    if(uuid != null) {
-      map[CosmosSignatureKeys.uuid.index] = CborBytes(uuid!, tags: [RegistryType.UUID.tag]);
-    }
+    map[CosmosSignatureKeys.uuid.index] = CborBytes(uuid, tags: [RegistryType.UUID.tag]);
     if (origin != null) {
       map[CosmosSignatureKeys.origin.index] = origin;
     }
@@ -57,7 +55,7 @@ class CosmosSignature extends RegistryItem {
 
     return CosmosSignature(
       signature: fromHex(signature),
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       origin: origin,
     );
   }

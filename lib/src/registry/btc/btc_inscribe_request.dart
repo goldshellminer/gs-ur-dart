@@ -41,9 +41,7 @@ class BtcInscribeRequest extends RegistryItem {
   @override
   CborValue toCborValue() {
     final Map map = {};
-    if (uuid != null) {
-      map[BtcInscribeRequestKeys.uuid.index] = CborBytes(getRequestId(), tags: [RegistryType.UUID.tag]);
-    }
+    map[BtcInscribeRequestKeys.uuid.index] = CborBytes(getRequestId(), tags: [RegistryType.UUID.tag]);
     map[BtcInscribeRequestKeys.commitData.index] =  CborBytes(commitData, tags: [RegistryType.CRYPTO_PSBT.tag]);
     map[BtcInscribeRequestKeys.revealData.index] =  CborBytes(revealData, tags: [RegistryType.CRYPTO_PSBT.tag]);
     if (origin != null) {

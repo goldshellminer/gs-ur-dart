@@ -10,7 +10,7 @@ class AlphSignature extends GsSignature {
 
   AlphSignature({
     required super.signature,
-    super.uuid,
+    required super.uuid,
     super.origin,
   });
 
@@ -30,7 +30,7 @@ class AlphSignature extends GsSignature {
 
     return GsSignature(
       signature: fromHex(signature),
-      uuid: uuid != null ? fromHex(uuid) : null , 
+      uuid: fromHex(uuid), 
       origin: origin,
     );
   }
@@ -40,4 +40,5 @@ class AlphSignature extends GsSignature {
     String jsonData = const CborJsonEncoder().convert(cborValue);
     return fromDataItem(jsonData);
   }
+  
 }
