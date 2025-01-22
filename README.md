@@ -1,7 +1,6 @@
-# gs-ur-js
+# gs-ur-dart
 
 This repository contains the Flutter SDK for interacting with Goldshell's GSWallet. GSWallet is a hardware wallet that securely transmits information via QR codes.  This SDK allows developers to integrate GSWallet functionality into their applications.
-GsWallet Official Website: [wallet.goldshell.com](wallet.goldshell.com) 
 
 ## Features
 
