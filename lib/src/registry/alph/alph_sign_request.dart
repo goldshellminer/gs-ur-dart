@@ -78,7 +78,7 @@ class AlphSignRequest extends RegistryItem {
     final data = map[AlphSignRequestKeys.data.index.toString()];
     final uuid = map[AlphSignRequestKeys.uuid.index.toString()];
     final derivationPath = map[AlphSignRequestKeys.derivationPath.index.toString()] != null ? CryptoKeypath.fromDataItem(map[AlphSignRequestKeys.derivationPath.index.toString()]) : null;
-    final outputs = map[AlphSignRequestKeys.outputs.index.toString()]?.map((e)=>CryptoTxEntity.fromDataItem(e)).toList();
+    final outputs = ((map[AlphSignRequestKeys.outputs.index.toString()] ?? []) as List).map((e)=>CryptoTxEntity.fromDataItem(e)).toList();
     final origin = map[AlphSignRequestKeys.origin.index.toString()];
 
     return AlphSignRequest(
