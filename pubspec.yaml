@@ -1,7 +1,8 @@
 name: gs_ur_dart
 description: The UR protocol of GSWallet. Consisting of dart port of https://github.com/ngraveio/bc-ur.
 version: 1.0.0
-homepage: https://wallet.goldshell.com
+author: GSWalletDeveloper<goldshelldevelop@gmail.com>
+homepage: https://github.com/goldshellminer/gs-ur-dart
 repository: https://github.com/goldshellminer/gs-ur-dart.git/
 license: MIT
 environment:
