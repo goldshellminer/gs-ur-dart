@@ -134,8 +134,6 @@ String decode(String str, {Styles style = Styles.minimal}) {
       return _decode(str, '-', BYTEWORD_LENGTH);
     case Styles.minimal:
       return _decode(str, '', MINIMAL_BYTEWORD_LENGTH);
-    default:
-      throw ArgumentError('Invalid style $style');
   }
 }
 
@@ -147,7 +145,5 @@ String encode(String str, {Styles style = Styles.minimal}) {
       return encodeWithSeparator(str, '-');
     case Styles.minimal:
       return encodeMinimal(str);
-    default:
-      throw ArgumentError('Invalid style $style');
   }
 }
